@@ -1,5 +1,4 @@
-
-/* Fonte e Reset */
+/*Fonte e Reset*/
 * {
     margin: 0;
     padding: 0;
@@ -115,12 +114,26 @@ nav ul li a:hover {
     font-size: 20px;
     margin-bottom: 10px;
 }
-
 .grid-filmes {
     display: flex;
-    gap: 35px; /* Espaço entre as imagens */
-    flex-wrap: wrap;
+    gap: 20px;
+    overflow-x: auto; /* Adiciona rolagem horizontal */
+    padding-bottom: 10px;
 }
+
+.grid-filmes::-webkit-scrollbar {
+    height: 8px; /* Altura da barra */
+}
+
+.grid-filmes::-webkit-scrollbar-track {
+    background: black; /* Fundo da barra */
+}
+
+.grid-filmes::-webkit-scrollbar-thumb {
+    background: #e62429; /* Cor da barra */
+    border-radius: 10px;
+}
+
 
 .card {
     background: #202020;
@@ -131,7 +144,7 @@ nav ul li a:hover {
 }
 
 .card img {
-    width: 200px; /* Define um tamanho fixo */
+    width: 400px; /* Define um tamanho fixo */
     height: auto;
     object-fit: cover;
 }
@@ -142,7 +155,7 @@ nav ul li a:hover {
 }
 
 .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
 /* Ajustando o botão do menu para parecer com os outros itens */
@@ -197,15 +210,3 @@ nav ul li a:hover {
     display: block;
 }
 
-@media (max-width: 768px) {
-    /* ... */
-  }
-  
-  @media (max-width: 480px) {
-    /* ... */
-  }
-
-p {
-  margin-left: 20px;
-  margin-right: 20px;
-}
