@@ -118,7 +118,7 @@ iframe {
 }
 .grid-filmes {
     display: flex;
-    gap: 100px;
+    gap: 128px;
     overflow-x: auto; /* Adiciona rolagem horizontal */
     padding-bottom: 10px;
 }
