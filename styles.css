@@ -120,7 +120,7 @@ iframe {
 
 .grid-filmes {
     display: flex;
-    gap: 129px; /* Espaço entre as imagens */
+    gap: 143px; /* Espaço entre as imagens */
     flex-wrap: wrap;
 }
 
