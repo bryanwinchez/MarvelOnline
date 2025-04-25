@@ -120,7 +120,7 @@ iframe {
 
 .grid-filmes {
     display: flex;
-    gap: 143px; /* Espaço entre as imagens */
+    gap: 165px; /* Espaço entre as imagens */
     flex-wrap: wrap;
 }
 
@@ -129,18 +129,18 @@ iframe {
     padding: 10px;
     border-radius: 10px;
     text-align: center;
-    transition: transform 0.3s;
+    transition: transform 0.5s;
 }
 
 .card img {
-    width: 200px; /* Define um tamanho fixo */
+    width: 180px; /* Define um tamanho fixo */ 
     height: auto;
     object-fit: cover;
 }
 
 .card p {
     margin-top: 10px;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 .card:hover {

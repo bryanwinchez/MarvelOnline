@@ -142,22 +142,22 @@ iframe {
     padding: 10px;
     border-radius: 10px;
     text-align: center;
-    transition: transform 0.3s;
+    transition: transform 0.5s;
 }
 
 .card img {
-    width: 400px; /* Define um tamanho fixo */
+    width: 300px; /* Define um tamanho fixo */
     height: auto;
     object-fit: cover;
 }
 
 .card p {
     margin-top: 10px;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 .card:hover {
-    transform: scale(1.04);
+    transform: scale(1.05);
 }
 
 /* Ajustando o botão do menu para parecer com os outros itens */
