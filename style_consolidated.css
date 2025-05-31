@@ -1,0 +1,499 @@
+/****** Base Styles & Reset ******/
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base font size */
+}
+
+body {
+    background-color: #0b0c10; /* Darker, slightly blue-tinted black */
+    color: #e0e0e0; /* Lighter grey for text */
+    font-family: "Hammersmith One", sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll on body */
+}
+
+a {
+    color: #e62429; /* Marvel Red */
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: #ff454d; /* Lighter red on hover */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    vertical-align: middle; /* Remove bottom space */
+}
+
+h1, h2, h3 {
+    font-family: "Oswald", "Asul", sans-serif; /* Use Oswald for headings */
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/****** Header & Navigation - Refined ******/
+header {
+    background: linear-gradient(to bottom, rgba(11, 12, 16, 0.95), rgba(11, 12, 16, 0.8));
+    padding: 12px 4%; /* Adjusted padding */
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #2a2a2e; /* Subtle border */
+    transition: background-color 0.3s ease;
+}
+
+/* Add a subtle shadow on scroll */
+/* header.scrolled { background-color: rgba(11, 12, 16, 0.98); box-shadow: 0 2px 10px rgba(0,0,0,0.3); } */
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1600px; /* Wider max-width for large screens */
+    justify-content: space-between;
+}
+
+.logo {
+    width: 180px; /* Further reduced logo size */
+    height: auto;
+    flex-shrink: 0;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 30px; /* Increased gap */
+}
+
+nav ul li a {
+    color: #e0e0e0;
+    font-size: 1rem; /* Relative font size */
+    padding: 8px 0;
+    position: relative;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #ffffff;
+}
+
+nav ul li a::after {
+    content: "."; /* Use a dot or small element */
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    background-color: #e62429;
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+nav ul li a:hover::after {
+    transform: translateX(-50%) scale(1);
+}
+
+/* Menu Dropdown - Refined */
+.menu {
+    position: relative;
+    display: inline-block;
+}
+
+.menu button {
+    background-color: transparent; /* Transparent background */
+    color: #e0e0e0;
+    padding: 8px 15px;
+    border: 1px solid #444; /* Subtle border */
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: normal;
+    border-radius: 20px; /* Pill shape */
+    text-transform: uppercase;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    letter-spacing: 0.5px;
+}
+
+.menu button:hover {
+    background-color: #e62429;
+    color: #ffffff;
+    border-color: #e62429;
+}
+
+.menu-content {
+    display: none;
+    position: absolute;
+    top: 110%; /* Further adjusted position */
+    right: 0;
+    background-color: #1c1d21; /* Slightly different dark shade */
+    min-width: 200px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    border-radius: 8px;
+    padding: 10px 0;
+    border: 1px solid #333;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none; /* Prevent interaction when hidden */
+}
+
+.menu:hover .menu-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto; /* Allow interaction when visible */
+}
+
+.menu-content a {
+    color: #e0e0e0;
+    padding: 12px 25px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.menu-content a:hover {
+    background-color: #e62429;
+    color: #ffffff;
+}
+
+/* Banner - More Impact */
+.banner {
+    margin: 0; /* Remove margin, make it full width */
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    padding: 60px 5%; /* Use percentage padding */
+    border-radius: 0; /* Remove border-radius */
+    /* Default banner for pages without specific one */
+    background: linear-gradient(to top, rgba(11, 12, 16, 1) 5%, rgba(11, 12, 16, 0.5) 50%, rgba(11, 12, 16, 0.8) 100%), url("Vingadores.png") no-repeat center center/cover;
+    min-height: 75vh; /* Increased height */
+    text-align: center;
+    position: relative; /* For potential overlays */
+    overflow: hidden;
+    background-size: cover; /* Ensure background covers */
+    background-position: center center; /* Center background */
+}
+
+.banner-content {
+    max-width: 700px;
+    background: none;
+    padding: 20px;
+    border-radius: 0;
+    margin-bottom: 30px;
+    position: relative; /* Ensure content is above pseudo-elements if used */
+    z-index: 2;
+}
+
+.banner-content h1 {
+    font-size: 3.5rem; /* Larger font size */
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+    line-height: 1.2;
+}
+
+.banner-content p {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    color: #cccccc;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.banner-video {
+    width: 100%;
+    max-width: 800px; /* Slightly larger max video width */
+    position: relative; /* Ensure video is above pseudo-elements */
+    z-index: 2;
+}
+
+.banner-video iframe {
+    border-radius: 12px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: none; /* Remove border */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.btn {
+    display: inline-block;
+    background: #e62429;
+    padding: 14px 30px;
+    color: white;
+    border-radius: 25px; /* Pill shape */
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 4px 15px rgba(230, 36, 41, 0.3);
+}
+
+.btn:hover {
+    background: #ff454d;
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(255, 69, 77, 0.4);
+}
+
+/****** Content Sections - Disney+ Style ******/
+.filmesh1 {
+    text-align: left; /* Align section titles left */
+    padding: 50px 4% 20px 4%;
+    font-size: 1.8rem;
+    color: #ffffff;
+    font-weight: 700; /* Ensure Asul bold is used */
+    letter-spacing: 1px;
+}
+
+.filmes {
+    padding: 0 4% 50px 4%;
+}
+
+/* Default Grid (can be overridden for carousels) */
+.grid-filmes {
+    display: grid;
+    gap: 20px; /* Slightly reduced gap */
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Base grid size */
+}
+
+/* Card - Refined */
+.card {
+    background: transparent; /* Remove card background */
+    padding: 0;
+    border-radius: 6px; /* Slightly softer radius */
+    text-align: left; /* Align text left */
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: visible; /* Allow hover effects to slightly exceed bounds */
+    border: none; /* Remove border */
+    position: relative;
+}
+
+.card a {
+    display: block;
+    border-radius: 6px;
+    overflow: hidden; /* Clip image to border-radius */
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.card a::after { /* Subtle overlay */
+    content: ".";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to top, rgba(11, 12, 16, 0.7) 0%, rgba(11, 12, 16, 0) 30%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover a::after {
+    opacity: 1;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card p {
+    margin: 0;
+    padding: 10px 0 0 0; /* Padding top only */
+    font-size: 0.9rem;
+    background-color: transparent; /* Remove background */
+    min-height: auto; /* Remove min-height */
+    display: block; /* Change from flex */
+    color: #b0b0b0; /* Lighter grey for title */
+    line-height: 1.4;
+    transition: color 0.2s ease;
+}
+
+.card:hover p {
+    color: #ffffff;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slightly larger scale on hover */
+}
+
+.card:hover a {
+     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* Horizontal Scroll / Carousel Styling */
+.horizontal-scroll-container {
+    position: relative; /* For potential nav buttons */
+}
+
+.grid-filmes.horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 20px; /* Space for scrollbar */
+    scroll-snap-type: x mandatory;
+    gap: 15px; /* Gap for carousel items */
+    grid-template-columns: none; /* Override grid */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Hide scrollbar visually but keep functionality */
+.grid-filmes.horizontal-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+.grid-filmes.horizontal-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+.grid-filmes.horizontal-scroll::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 10px;
+}
+.grid-filmes.horizontal-scroll::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.grid-filmes.horizontal-scroll .card {
+    flex: 0 0 auto;
+    width: 180px; /* Adjust width as needed for carousel */
+    scroll-snap-align: start;
+    margin-right: 5px; /* Ensure gap is respected */
+}
+
+/****** General Text Styles ******/
+.p1 {
+  margin: 30px 4%;
+  line-height: 1.8;
+  color: #c0c0c0;
+  max-width: 900px; /* Limit width for readability */
+}
+
+/****** Responsiveness - Refined ******/
+
+/* Large Desktops */
+@media (min-width: 1601px) {
+    .grid-filmes:not(.horizontal-scroll) {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    .grid-filmes.horizontal-scroll .card {
+        width: 220px;
+    }
+}
+
+/* Standard Desktops & Laptops */
+@media (max-width: 1200px) {
+    .grid-filmes:not(.horizontal-scroll) {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    }
+    .grid-filmes.horizontal-scroll .card {
+        width: 190px;
+    }
+    .banner-content h1 { font-size: 3rem; }
+    .banner-content p { font-size: 1.2rem; }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    nav ul {
+        gap: 20px;
+    }
+    .banner-content h1 { font-size: 2.5rem; }
+    .banner-content p { font-size: 1.1rem; }
+    .filmesh1 { font-size: 1.6rem; padding: 40px 4% 15px 4%; }
+    .grid-filmes:not(.horizontal-scroll) {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+    .grid-filmes.horizontal-scroll .card {
+        width: 170px;
+        gap: 12px;
+    }
+}
+
+/* Mobile Landscape & Large Phones */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 4%;
+    }
+    .logo {
+        width: 150px;
+    }
+    .nav-container {
+        /* Consider implementing a hamburger menu toggle here */
+        /* For now, just reduce gap further or hide some items */
+    }
+    nav ul {
+        gap: 15px;
+        /* display: none; /* Example: Hide for hamburger */
+    }
+    nav ul li a { font-size: 0.9rem; }
+    .menu button { font-size: 0.8rem; padding: 6px 12px; }
+
+    .banner {
+        min-height: 60vh;
+    }
+    .banner-content h1 { font-size: 2.2rem; }
+    .banner-content p { font-size: 1rem; }
+    .btn { padding: 12px 25px; font-size: 1rem; }
+    .filmesh1 { font-size: 1.4rem; }
+    .grid-filmes:not(.horizontal-scroll) {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 12px;
+    }
+     .grid-filmes.horizontal-scroll .card {
+        width: 150px;
+        gap: 10px;
+    }
+    .card p { font-size: 0.85rem; }
+}
+
+/* Mobile Portrait */
+@media (max-width: 480px) {
+    .logo {
+        width: 120px;
+    }
+    /* Hamburger menu would be essential here */
+    nav ul {
+        gap: 10px;
+    }
+    .banner {
+        min-height: 55vh;
+        padding: 40px 4%;
+    }
+    .banner-content h1 { font-size: 1.8rem; }
+    .banner-content p { font-size: 0.9rem; }
+    .btn { padding: 10px 20px; font-size: 0.9rem; }
+    .filmesh1 { font-size: 1.2rem; padding: 30px 4% 10px 4%; }
+    .grid-filmes:not(.horizontal-scroll) {
+        grid-template-columns: repeat(2, 1fr); /* Force 2 columns */
+        gap: 15px; /* Adjust gap for 2 columns */
+    }
+    .grid-filmes.horizontal-scroll .card {
+        width: 130px;
+        gap: 10px;
+    }
+    .card p { font-size: 0.8rem; }
+}
+
