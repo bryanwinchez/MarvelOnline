@@ -445,7 +445,6 @@ nav ul li a:hover::after {
     flex-direction: column;
     align-items: flex-start;
     position: relative; /* Necessário para posicionar dropdown */
-    overflow-x: hidden; /* Impede scroll lateral */
 }
 
 nav ul {
@@ -469,7 +468,8 @@ nav ul li a {
     position: absolute;
     top: 100%;
     left: 0;
-    width: 100vw;
+    width: max-content;
+    max-width: 300px;
     background-color: #000;
     border-radius: 0 0 20px 20px;
     padding: 20px;
