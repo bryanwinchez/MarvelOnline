@@ -448,6 +448,7 @@ nav ul li a:hover::after {
     flex-direction: column;
     align-items: flex-start;
     position: relative; /* Necessário para posicionar dropdown */
+    overflow-x: hidden; /* Impede scroll lateral */
 }
 
 nav ul {
